@@ -2,6 +2,7 @@
 import React from "react";
 import { useLocation } from "react-router";
 import GenreCard from "../components/GenreCard";
+import gameGenres from "../assets/game-genres.jpg";
 import {
   FaBolt,
   FaDragon,
@@ -25,13 +26,11 @@ export default function HomePage() {
   return (
     <div className="flex flex-col min-h-screen bg-gray-100">
       {/* Hero */}
-      <div className="relative w-full h-[50vh] sm:h-[60vh] md:h-[70vh] lg:h-screen overflow-hidden">
-        <video
-          src="https://www.videvo.net/videvo_files/converted/2016_08/videos/160727_04_SportsVolleyball_1080p.mp463493.webm"
+      <div className="relative w-full h-[50vh] sm:h-[60vh] md:h-[60vh] lg:h-[80vh] overflow-hidden">
+        <img
+          src={gameGenres}
+          alt=""
           className="absolute inset-0 w-full h-full object-cover"
-          autoPlay
-          muted
-          loop
         />
         <div className="absolute inset-0 bg-black/50 flex flex-col justify-center items-center text-center px-4">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-3">

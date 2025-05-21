@@ -1,17 +1,15 @@
 // src/pages/genres/AdventurePage.jsx
 import React from "react";
+import RDR2 from "../../assets/RDR2.gif";
 
 export default function AdventurePage() {
   return (
     <div className="flex flex-col min-h-screen bg-black">
       {/* Video hero */}
-      <div className="relative w-full h-[50vh] sm:h-[60vh] md:h-[75vh] lg:h-screen overflow-hidden">
-        <video
-          src="https://www.videvo.net/videvo_files/converted/2015_08/videos/150717_Bl_Adventure4_1080p.mp427273.webm"
+      <div className="relative w-full  h-[50vh] sm:h-[60vh] md:h-[60vh] lg:h-[60] overflow-hidden">
+        <img
+          src={RDR2}
           className="absolute inset-0 w-full h-full object-cover"
-          autoPlay
-          muted
-          loop
         />
         <div className="absolute inset-0 bg-black/60 flex flex-col justify-center items-center text-center px-4">
           <h1 className="text-3xl sm:text-4xl md:text-5xl text-white font-bold mb-2">

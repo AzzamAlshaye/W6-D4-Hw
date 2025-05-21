@@ -1,17 +1,14 @@
 // src/pages/genres/SportsPage.jsx
 import React from "react";
-
+import Fifa from "../../assets/Fifa.gif";
 export default function SportsPage() {
   return (
     <div className="flex flex-col min-h-screen bg-black">
       {/* Video hero */}
-      <div className="relative w-full h-[50vh] sm:h-[60vh] md:h-[75vh] lg:h-screen overflow-hidden">
-        <video
-          src="https://www.videvo.net/videvo_files/converted/2018_10/videos/181004_05_StadiumCrowd_1080p.mp440102.webm"
+      <div className="relative w-full  h-[50vh] sm:h-[60vh] md:h-[60vh] lg:h-[60]  overflow-hidden">
+        <img
+          src={Fifa}
           className="absolute inset-0 w-full h-full object-cover"
-          autoPlay
-          muted
-          loop
         />
         <div className="absolute inset-0 bg-black/60 flex flex-col justify-center items-center text-center px-4">
           <h1 className="text-3xl sm:text-4xl md:text-5xl text-white font-bold mb-2">
