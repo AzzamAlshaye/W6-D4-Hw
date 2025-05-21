@@ -8,7 +8,7 @@ import HomePage from "../pages/HomePage";
 import AboutUs from "../pages/AboutUs";
 import ContactUs from "../pages/ContactUs";
 
-// games pages & layout
+// games pages & layout — note we import GamesLayout from components
 import GamesLayout from "../pages/GamesLayout";
 import GamesPage from "../pages/GamePages";
 import ActionPage from "../pages/genres/ActionPage";
@@ -19,7 +19,7 @@ import SportsPage from "../pages/genres/SportsPage";
 
 function RootLayout() {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen overflow-x-hidden">
       <Navbar />
       <main className="flex-grow">
         <Outlet />
@@ -39,7 +39,9 @@ const router = createBrowserRouter([
         path: "games",
         element: <GamesLayout />,
         children: [
+          // index (no bottom-nav)
           { index: true, element: <GamesPage /> },
+          // per-genre
           { path: "action", element: <ActionPage /> },
           { path: "adventure", element: <AdventurePage /> },
           { path: "rpg", element: <RpgPage /> },
