@@ -2,6 +2,7 @@
 import React from "react";
 import { Link } from "react-router";
 import { FaGamepad } from "react-icons/fa";
+import { IoMenu } from "react-icons/io5";
 
 export default function Navbar() {
   const linkClass = ({ isActive }) =>
@@ -11,12 +12,13 @@ export default function Navbar() {
 
   return (
     <nav className="bg-gray-900 text-white">
-      <div className="container mx-auto flex items-center justify-between p-4">
+      <div className="container mx-auto flex items-center lg:justify-normal justify-between gap-5 p-4 ">
         <div className="flex items-center space-x-2">
           <FaGamepad size={24} />
           <span className="font-bold text-lg">GameScope</span>
         </div>
-        <div className="space-x-2">
+        <IoMenu className="block lg:hidden text-2xl" />
+        <div className="space-x-2 lg:flex hidden">
           <Link to="/" className={linkClass}>
             Home
           </Link>

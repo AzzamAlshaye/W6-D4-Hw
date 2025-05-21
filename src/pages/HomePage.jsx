@@ -1,6 +1,7 @@
 // src/pages/HomePage.jsx
 import React from "react";
-import { Link } from "react-router";
+import { useLocation } from "react-router";
+import GenreCard from "../components/GenreCard";
 import {
   FaBolt,
   FaDragon,
@@ -18,20 +19,43 @@ const genres = [
 ];
 
 export default function HomePage() {
+  const { pathname } = useLocation();
+  const current = pathname.split("/")[2] || ""; // empty on "/"
+
   return (
-    <div className="flex flex-col items-center py-12 px-4 bg-gray-100 min-h-screen">
-      <h1 className="text-4xl font-bold mb-8">Pick a Genre</h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 w-full max-w-6xl">
-        {genres.map((g) => (
-          <Link
-            key={g.id}
-            to={`/games/${g.id}`}
-            className="flex flex-col items-center p-6 bg-white rounded-lg shadow hover:shadow-lg transform hover:-translate-y-1 transition"
-          >
-            {g.icon}
-            <span className="mt-3 text-lg font-semibold">{g.title}</span>
-          </Link>
-        ))}
+    <div className="flex flex-col min-h-screen bg-gray-100">
+      {/* Hero */}
+      <div className="relative w-full h-[50vh] sm:h-[60vh] md:h-[70vh] lg:h-screen overflow-hidden">
+        <video
+          src="https://www.videvo.net/videvo_files/converted/2016_08/videos/160727_04_SportsVolleyball_1080p.mp463493.webm"
+          className="absolute inset-0 w-full h-full object-cover"
+          autoPlay
+          muted
+          loop
+        />
+        <div className="absolute inset-0 bg-black/50 flex flex-col justify-center items-center text-center px-4">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-3">
+            Pick Your Genre
+          </h1>
+          <p className="max-w-2xl text-sm sm:text-base md:text-lg text-gray-200">
+            Click on any genre below to dive into a cinematic experience.
+          </p>
+        </div>
+      </div>
+
+      {/* Cards grid */}
+      <div className="container mx-auto px-4 py-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+          {genres.map((g) => (
+            <GenreCard
+              key={g.id}
+              to={`/games/${g.id}`}
+              icon={g.icon}
+              title={g.title}
+              isActive={current === g.id}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );
