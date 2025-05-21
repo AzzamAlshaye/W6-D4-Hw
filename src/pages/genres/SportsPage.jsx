@@ -5,7 +5,7 @@ export default function SportsPage() {
   return (
     <div className="flex flex-col min-h-screen bg-black">
       {/* Video hero */}
-      <div className="relative w-full  h-[50vh] sm:h-[60vh] md:h-[60vh] lg:h-[60]  overflow-hidden">
+      <div className="relative w-full  h-[50vh] sm:h-[60vh] md:h-[60vh] lg:h-[60vh]  overflow-hidden">
         <img
           src={Fifa}
           className="absolute inset-0 w-full h-full object-cover"
