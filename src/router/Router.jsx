@@ -3,12 +3,12 @@ import React from "react";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import ScrollToTop from "../components/ScrollToTop";
 
 import HomePage from "../pages/HomePage";
 import AboutUs from "../pages/AboutUs";
 import ContactUs from "../pages/ContactUs";
 
-// games pages & layout — note we import GamesLayout from components
 import GamesLayout from "../pages/GamesLayout";
 import GamesPage from "../pages/GamePages";
 import ActionPage from "../pages/genres/ActionPage";
@@ -21,6 +21,8 @@ function RootLayout() {
   return (
     <div className="flex flex-col min-h-screen overflow-x-hidden">
       <Navbar />
+      {/* this makes every navigation scroll to top */}
+      <ScrollToTop />
       <main className="flex-grow">
         <Outlet />
       </main>
@@ -39,9 +41,7 @@ const router = createBrowserRouter([
         path: "games",
         element: <GamesLayout />,
         children: [
-          // index (no bottom-nav)
           { index: true, element: <GamesPage /> },
-          // per-genre
           { path: "action", element: <ActionPage /> },
           { path: "adventure", element: <AdventurePage /> },
           { path: "rpg", element: <RpgPage /> },
